@@ -1,0 +1,5 @@
+CREATE TABLE `t_xxx`
+(
+    `id` int NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (`id`)
+);

@@ -1,0 +1,1 @@
+-- insert into t_user (u_name) values ("beforeMigrate");
