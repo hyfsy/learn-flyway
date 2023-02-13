@@ -2,16 +2,18 @@ db:
   type: mysql
 user_table: xx
 spring:
+  application:
+    name: learn-flyway
   # 数据库连接配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.120.28:3306/flyway?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/flyway?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: Qwe123
+    password: root
   flyway:
     # 当迁移发现数据库非空且存在没有元数据的表时，自动执行基准迁移，新建history表
     baseline-on-migrate: true
-    baseline-version: 1
+    baseline-version: 6.2
     baseline-description: "xxx -> << Flyway Baseline >>"
 #    init-sqls:
 #      - create table t_xxx(id int primary key auto_increment);
@@ -22,6 +24,7 @@ spring:
       user_table: t_user
       aaa: zs
       placeholder_or_environment: dev # 注释的配置解析需要，太拉胯了
+    table: flyway_schema_history_${spring.application.name}
     # 启动、校验失败时清空数据库，生产时需要禁用！！！！！！！！！！！
 #    clean-disabled: false
 #    clean-on-validation-error: true
@@ -51,7 +54,6 @@ spring:
     placeholder-separator: ":"
     placeholder-suffix: "}"
     placeholder-replacement: true
-    table: flyway_schema_history
     create-schemas: true
     ################################################################################################################
     # 默认连接使用的表空间
