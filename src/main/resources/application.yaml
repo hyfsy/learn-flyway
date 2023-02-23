@@ -15,7 +15,7 @@ spring:
     baseline-on-migrate: true
     baseline-version: 6.2
     baseline-description: "xxx -> << Flyway Baseline >>"
-#    init-sqls:
+#    init-sqls: # 每次连接创建后都会用指定的语句进行初始化
 #      - create table t_xxx(id int primary key auto_increment);
     validate-migration-naming: true
     # 使用的数据库，默认为连接上的，大小写敏感
